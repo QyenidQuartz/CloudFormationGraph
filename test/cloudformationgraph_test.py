@@ -13,13 +13,13 @@
 # limitations under the License.
 
 import unittest
-from CloudFormationGraph import CloudFormationGraph
+from CloudFormationGraph import GraphvizGenerator
 from pprint import pprint
 
 
 class CloudFormationGraphTest(unittest.TestCase):
     def setUp(self):
-        self.cfg = CloudFormationGraph()
+        self.cfg = GraphvizGenerator()
 
 
 class AddParameterTest(CloudFormationGraphTest):

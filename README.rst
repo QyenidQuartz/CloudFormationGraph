@@ -28,9 +28,9 @@ CloudFormationGraph
 -------------------
 CloudFormationGraph is the API which you can use programmatically::
 
-    from CloudFormationGraph import CloudFormationGraph
+    from CloudFormationGraph import GraphvizGenerator
 
-    cfg = CloudFormationGraph()
+    cfg = GraphvizGenerator()
     cfg.add_stack(open('stack.json', 'r').read())
     # To get the raw graphviz in DOT format:
     dot = cfg.build()
