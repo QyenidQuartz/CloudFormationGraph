@@ -77,3 +77,24 @@ class BuildGraphTest(CloudFormationGraphTest):
         expected = ("digraph {\n\tTestParameter [label=TestParameter]"
         "\n\tTestResource [label=TestResource]\n\t\tTestResource -> TestParameter\n}")
         self.assertEquals(self.cfg.graph.source, expected)
+
+
+class DoesAddFnGetAtt(CloudFormationGraphTest):
+    def runTest(self):
+        stack = {
+            'Resources':{
+                'FirstResource':{
+                },
+                'TestResource':{
+                    'AnotherDepth':{
+                        'Fn::GetAtt': ['FirstResource', 'SomethingElse']
+                    }
+                }
+            }
+        }
+        self.cfg.add_stack(stack)
+        self.cfg.build()
+        expected = ("digraph {\n\tTestResource [label=TestResource]"
+        "\n\t\tTestResource -> FirstResource\n\t"
+        "FirstResource [label=FirstResource]\n}")
+        self.assertEquals(self.cfg.graph.source, expected)

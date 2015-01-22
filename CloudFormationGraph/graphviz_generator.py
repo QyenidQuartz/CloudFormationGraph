@@ -60,6 +60,8 @@ class GraphvizGenerator():
 
             if key == 'Ref':
                 references.append(value)
+            elif key == 'Fn::GetAtt':
+                references.append(value[0])
 
             elif isinstance(value, dict):
                 results = self.get_reference(value)
