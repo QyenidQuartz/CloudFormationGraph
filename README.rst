@@ -14,7 +14,6 @@ Installation
 Since I'm too lazy to push this onto pypi, for now at least you'll have to
 install it directly::
 
-    pip install graphviz
     pip install git+http://github.com/tigertoes/CloudFormationGraph
 
 cfd
