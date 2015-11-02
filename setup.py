@@ -11,5 +11,8 @@ setup(
     install_requires=['graphviz'],
     setup_requires=['flake8'],
     packages=['CloudFormationGraph'],
-    test_suite='test'
+    test_suite='test',
+    entry_points={
+        'console_scripts': ['cfd = CloudFormationGraph.cfd:main']
+    }
 )
